@@ -1,4 +1,6 @@
 ---
+import axios from 'axios'
+
 // Component Imports
 import BaseHead from '../components/BaseHead.astro';
 import BlogHeader from '../components/BlogHeader.astro';
@@ -21,6 +23,10 @@ let permalink = 'https://example.com/';
 const youtubeId = (new URL( Astro.request.url )).pathname.substring(1)
 
 const transcriptionUrl = `${ import.meta.env.TRANSCRIBE_HOST }/api?v=${youtubeId}`
+
+const transcription = await axios.get( transcriptionUrl ).then( res => res.data )
+
+console.log( 'transcription', transcription )
 
 
 // Full Astro Component Syntax:
@@ -73,7 +79,8 @@ const transcriptionUrl = `${ import.meta.env.TRANSCRIBE_HOST }/api?v=${youtubeId
 			<main class="content">
 				<section class="intro">
 					<h1 class="latest">{title}</h1>
-					<p>{ transcriptionUrl }</p>
+					<p>{ transcription.data.map( line => line.text ).join(' ') }</p>
+					<pre>{ JSON.stringify( transcription, null, 4 ) }</pre>
 				</section>
 			</main>
 		</div>

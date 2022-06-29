@@ -1,5 +1,5 @@
 import { defineConfig } from 'astro/config'
-import netlify from '@astrojs/netlify/edge-functions'
+import netlify from '@astrojs/netlify/functions'
 // import preact from '@astrojs/preact'
 // import worker, { cloudflare } from 'astro-service-worker/adapter/index.js'
 // import cloudflare from '@astrojs/cloudflare'
@@ -8,6 +8,8 @@ import netlify from '@astrojs/netlify/edge-functions'
 export default defineConfig({
 	site: 'https://vournalist.com',
 	integrations: [
-		netlify(),
+		netlify({
+            dist: new URL('./dist/', import.meta.url)
+        }),
 	],
 })

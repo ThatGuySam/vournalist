@@ -6,8 +6,9 @@
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro build",
+    "build-ssr": "astro build  --experimental-ssr",
     "preview": "astro preview",
-    "cloudflare-pages-build": "npm run build"
+    "netlify-build": "npm run build-ssr"
   },
   "devDependencies": {
     "@astrojs/preact": "^0.2.0",

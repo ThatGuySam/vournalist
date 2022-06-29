@@ -12,12 +12,12 @@
   },
   "devDependencies": {
     "@astrojs/preact": "^0.2.0",
-    "astro": "1.0.0-beta.47",
+    "astro": "1.0.0-beta.50",
     "wrangler": "^2.0.15"
   },
   "dependencies": {
     "@astrojs/cloudflare": "^0.2.1",
-    "@astrojs/netlify": "0.4.4",
+    "@astrojs/netlify": "0.4.5",
     "astro-service-worker": "^0.1.2",
     "preact": "^10.7.3"
   }

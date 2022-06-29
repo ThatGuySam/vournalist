@@ -8,8 +8,6 @@ import netlify from '@astrojs/netlify/edge-functions'
 export default defineConfig({
 	site: 'https://vournalist.com',
 	integrations: [
-		netlify({
-            dist: new URL('./dist/', import.meta.url)
-        }),
+		netlify(),
 	],
 })

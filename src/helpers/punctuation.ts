@@ -1,7 +1,8 @@
 import 'cross-fetch/polyfill'
 
 
-async function fetchPunctuatedText ( text ) {
+async function fetchPunctuatedForSegment ( text ) {
+    console.log( 'Fetching punctuated text for segment:', text.substring( 0, 100 ) )
 
     const apiUrl = 'https://api-inference.huggingface.co/models/oliverguhr/fullstop-punctuation-multilang-large'
 
@@ -21,9 +22,32 @@ async function fetchPunctuatedText ( text ) {
 
 	const result = await response.json()
 
-    // console.log( 'result', result )
+    // Check if it's a currently loading error
+    if ( result?.error && result.error.includes( 'currently loading' ) ) {
+        console.log( 'Error:', result.error )
+        throw new Error( 'Hugging Face is currently loading the model' )
+    }
+
+    console.log( 'result', result )
 
 	return result
+}
+
+async function fetchPunctuatedText ( text ) {
+    // Create segments of chars 
+    // so Hugging Face doesn't trim the text
+    const segmentLength = 2000
+
+    const segments = []
+
+    for ( let i = 0; i < text.length; i += segmentLength ) {
+        const punctuated = await fetchPunctuatedForSegment( text.substring( i, i + segmentLength ) )
+
+        segments.push( punctuated )
+    }
+   
+    // Return merged segments
+    return segments.flat()
 }
 
 function createPunctuatedTextFromEntity ( entity ) {

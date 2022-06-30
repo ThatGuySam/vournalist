@@ -1,6 +1,6 @@
 import { assert, expect, test } from 'vitest'
 
-import { punctuateText } from '../src/helpers/puncuation.ts'
+import { punctuateText } from '../src/helpers/punctuation'
 
 
 const raw = `hi everyone my name is chris martin i'm here with my colleague julian pistorius we're here talking about exosphere exosphere reimagines openstack horizon for researchers and data scientists so if you have some kind of compute intensive workload or server workload you can run that on a big computer or a persistent computer or a disposable computer on an openstack cloud at your institution or a commercial cloud exosphere makes this really easy and includes all the batteries you get to create instances you get a one-click shell in your browser and a desktop environment and you don't have to fuss with network security groups or ssh key pairs or other advanced it concepts uh you just open the app launch your instance and get to work our goal is that it just works with openstack clouds it's a client-side web application`

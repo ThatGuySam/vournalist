@@ -21,6 +21,7 @@
     "@astrojs/netlify": "^0.4.7",
     "astro-service-worker": "^0.1.2",
     "axios": "^0.27.2",
+    "cross-fetch": "^3.1.5",
     "preact": "^10.7.3",
     "pronouncing": "github:aparrish/pronouncingjs",
     "vite-tsconfig-paths": "^3.5.0"

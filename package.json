@@ -21,6 +21,7 @@
   "dependencies": {
     "@astrojs/cloudflare": "^0.2.1",
     "@astrojs/netlify": "^0.4.7",
+    "@astrojs/vercel": "^0.2.4",
     "astro-service-worker": "^0.1.2",
     "axios": "^0.27.2",
     "cross-fetch": "^3.1.5",

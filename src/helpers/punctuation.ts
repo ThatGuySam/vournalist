@@ -28,7 +28,7 @@ async function fetchPunctuatedForSegment ( text ) {
         throw new Error( 'Hugging Face is currently loading the model' )
     }
 
-    console.log( 'result', result )
+    // console.log( 'result', result )
 
 	return result
 }
